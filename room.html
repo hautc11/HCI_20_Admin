@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Room Page</title>
+    <style>
+        .tbody tr:hover, tr.selected {
+            background-color: rgb(214, 212, 212);
+            color: white;
+        }
+    </style>
+    <!-- Custom fonts for this template -->
+    <link href="vdor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this page -->
+    <link href="vdor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="home.html">
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <i class="fas fa-hotel"></i>
+                </div>
+                <div class="sidebar-brand-text mx-3">Hotel Management</sup></div>
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item">
+                <a class="nav-link" href="home.html">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Dashboard</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Main
+            </div>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link" href="booking.html">
+                    <i class="fas fa-fw fa-calendar-check"></i>
+                    <span>Booking</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="room.html">
+                    <i class="fas fa-fw fa-bed"></i>
+                    <span>Rooms</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="staffs.html">
+                    <i class="fas fa-fw fa-user-check"></i>
+                    <span>Staffs</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="receipt.html">
+                    <i class="fas fa-fw fa-receipt"></i>
+                    <span>Receipt</span></a>
+            </li>
+
+            <!-- Nav Item - Utilities Collapse Menu -->
+            
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Tools
+            </div>
+            <!-- Nav Item - Tables -->
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-fw fa-address-book"></i>
+                    <span>Contact</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+
+            <!-- Sidebar Message -->
+        </ul>
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <form class="form-inline">
+                        <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                    </form>
+
+                    <!-- Topbar Search -->
+                    <form
+                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        <div class="input-group">
+                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                                aria-label="Search" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="button">
+                                    <i class="fas fa-search fa-sm"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                        <li class="nav-item dropdown no-arrow d-sm-none">
+                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-search fa-fw"></i>
+                            </a>
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                                aria-labelledby="searchDropdown">
+                                <form class="form-inline mr-auto w-100 navbar-search">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control bg-light border-0 small"
+                                            placeholder="Search for..." aria-label="Search"
+                                            aria-describedby="basic-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button">
+                                                <i class="fas fa-search fa-sm"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </li>
+
+                        <!-- Nav Item - Alerts -->
+                        <li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-bell fa-fw"></i>
+                                <!-- Counter - Alerts -->
+                                <span class="badge badge-danger badge-counter">3+</span>
+                            </a>
+                            <!-- Dropdown - Alerts -->
+                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="alertsDropdown">
+                                <h6 class="dropdown-header">
+                                    Alerts Center
+                                </h6>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="mr-3">
+                                        <div class="icon-circle bg-primary">
+                                            <i class="fas fa-file-alt text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="small text-gray-500">December 12, 2019</div>
+                                        <span class="font-weight-bold">A new monthly report is ready to download!</span>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="mr-3">
+                                        <div class="icon-circle bg-success">
+                                            <i class="fas fa-donate text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="small text-gray-500">December 7, 2019</div>
+                                        $290.29 has been deposited into your account!
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="mr-3">
+                                        <div class="icon-circle bg-warning">
+                                            <i class="fas fa-exclamation-triangle text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="small text-gray-500">December 2, 2019</div>
+                                        Spending Alert: We've noticed unusually high spending for your account.
+                                    </div>
+                                </a>
+                                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+                            </div>
+                        </li>
+
+                        <!-- Nav Item - Messages -->
+                        <li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-envelope fa-fw"></i>
+                                <!-- Counter - Messages -->
+                                <span class="badge badge-danger badge-counter">7</span>
+                            </a>
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="messagesDropdown">
+                                <h6 class="dropdown-header">
+                                    Message Center
+                                </h6>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="dropdown-list-image mr-3">
+                                        <img class="rounded-circle" src="img/undraw_profile_1.svg"
+                                            alt="">
+                                        <div class="status-indicator bg-success"></div>
+                                    </div>
+                                    <div class="font-weight-bold">
+                                        <div class="text-truncate">Hi there! I am wondering if you can help me with a
+                                            problem I've been having.</div>
+                                        <div class="small text-gray-500">Emily Fowler · 58m</div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="dropdown-list-image mr-3">
+                                        <img class="rounded-circle" src="img/undraw_profile_2.svg"
+                                            alt="">
+                                        <div class="status-indicator"></div>
+                                    </div>
+                                    <div>
+                                        <div class="text-truncate">I have the photos that you ordered last month, how
+                                            would you like them sent to you?</div>
+                                        <div class="small text-gray-500">Jae Chun · 1d</div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="dropdown-list-image mr-3">
+                                        <img class="rounded-circle" src="img/undraw_profile_3.svg"
+                                            alt="">
+                                        <div class="status-indicator bg-warning"></div>
+                                    </div>
+                                    <div>
+                                        <div class="text-truncate">Last month's report looks great, I am very happy with
+                                            the progress so far, keep up the good work!</div>
+                                        <div class="small text-gray-500">Morgan Alvarez · 2d</div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="dropdown-list-image mr-3">
+                                        <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60"
+                                            alt="">
+                                        <div class="status-indicator bg-success"></div>
+                                    </div>
+                                    <div>
+                                        <div class="text-truncate">Am I a good boy? The reason I ask is because someone
+                                            told me that people say this to all dogs, even if they aren't good...</div>
+                                        <div class="small text-gray-500">Chicken the Dog · 2w</div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
+                            </div>
+                        </li>
+
+                        <div class="topbar-divider d-none d-sm-block"></div>
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Hau T Chi</span>
+                                <img class="img-profile rounded-circle"
+                                    src="img/undraw_profile.svg">
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Profile
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Settings
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Activity Log
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800">Rooms Details</h1>
+                    <p><a href="home.html">Dasboard</a> / Rooms</p>
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="mb-2 font-weight-bold text-primary">Rooms Table</h6>
+                                <button class="btn mb-1 btn-primary btn-sm" data-target="#exampleModal1" data-toggle="modal"><i class="fa fa-plus fa-sm text-white-50"></i> Add</button>
+                                <button class="btn mb-1 btn-success btn-sm"><i class="fa fa-edit fa-sm text-white-50"></i> Edit</button>
+                                <button class="btn mb-1 btn-danger btn-sm" data-target="#exampleModal" data-toggle="modal"><i class="fa fa-trash fa-sm text-white-50"></i> Delete</button>      
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="text-align: center;">
+                                    <thead>
+                                        <tr>
+                                            <th>RoomNo</th>
+                                            <th>RoomType</th>
+                                            <th>BedCapacity</th>
+                                            <th>FeetSquare</th>
+                                            <th>GuestID</th>
+                                            <th>Phone</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th width="5%">RoomNo</th>
+                                            <th>RoomType</th>
+                                            <th>BedCapacity</th>
+                                            <th>FeetSquare</th>
+                                            <th>GuestID</th>
+                                            <th>Phone</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody class="tbody">
+                                        <tr>
+                                            <td>102</td>
+                                            <td>Junior</td>
+                                            <td>02</td>
+                                            <td>35</td>
+                                            <td>G0223</td>
+                                            <td>(971) 490-3305</td>
+                                            <td style="color: orange;">Cleaning</td>
+                                        </tr>
+                                        <tr>
+                                            <td>104</td>
+                                            <td>Junior</td>
+                                            <td>02</td>
+                                            <td>35</td>
+                                            <td>G2123</td>
+                                            <td>(971) 490-3305</td>
+                                            <td style="color: green;">Available</td>
+                                        </tr>
+                                        <tr>
+                                            <td>103</td>
+                                            <td>Junior</td>
+                                            <td>02</td>
+                                            <td>35</td>
+                                            <td>G5665</td>
+                                            <td>(971) 490-3305</td>
+                                            <td style="color: red;">Unavailable</td>
+                                        </tr>
+                                        <tr>
+                                            <td>202</td>
+                                            <td>Junior</td>
+                                            <td>02</td>
+                                            <td>35</td>
+                                            <td>G5602</td>
+                                            <td>(971) 490-3305</td>
+                                            <td style="color: green;">Available</td>
+                                        </tr>
+                                        <tr>
+                                            <td>203</td>
+                                            <td>Junior</td>
+                                            <td>02</td>
+                                            <td>35</td>
+                                            <td>G5602</td>
+                                            <td>(971) 490-3305</td>
+                                            <td style="color: green;">Available</td>
+                                        </tr>
+                                        <tr>
+                                            <td>204</td>
+                                            <td>Junior</td>
+                                            <td>02</td>
+                                            <td>35</td>
+                                            <td>G4032</td>
+                                            <td>(971) 490-3305</td>
+                                            <td style="color: orange;">Cleaning</td>
+                                        </tr>
+                                        <tr>
+                                            <td>304</td>
+                                            <td>Superior</td>
+                                            <td>02</td>
+                                            <td>45</td>
+                                            <td>G3501</td>
+                                            <td>(971) 490-3305</td>
+                                            <td style="color: red;">Unavailable</td>
+                                        </tr>
+                                        <tr>
+                                            <td>304</td>
+                                            <td>Superior</td>
+                                            <td>02</td>
+                                            <td>45</td>
+                                            <td>G3501</td>
+                                            <td>(971) 490-3305</td>
+                                            <td style="color: red;">Unavailable</td>
+                                        </tr>
+                                        <tr>
+                                            <td>304</td>
+                                            <td>Superior</td>
+                                            <td>02</td>
+                                            <td>45</td>
+                                            <td>G2501</td>
+                                            <td>(971) 490-3305</td>
+                                            <td style="color: green;">Available</td>
+                                        </tr>
+                                        <tr>
+                                            <td>405</td>
+                                            <td>Deluxe</td>
+                                            <td>02</td>
+                                            <td>85</td>
+                                            <td>G2302</td>
+                                            <td>(971) 490-3305</td>
+                                            <td style="color: red;">Unavailable</td>
+                                        </tr>
+                                        <tr>
+                                            <td>406</td>
+                                            <td>Deluxe</td>
+                                            <td>02</td>
+                                            <td>85</td>
+                                            <td>G2402</td>
+                                            <td>(971) 490-3305</td>
+                                            <td style="color: red;">Unavailable</td>
+                                        </tr>
+                                        <tr>
+                                            <td>408</td>
+                                            <td>Deluxe</td>
+                                            <td>02</td>
+                                            <td>85</td>
+                                            <td>G1202</td>
+                                            <td>(971) 490-3305</td>
+                                            <td style="color: red;">Unavailable</td>
+                                        </tr>
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Add Booking</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                  <label for="exampleFormControlInput1">RoomNo</label>
+                                  <input type="text" class="form-control" id="exampleFormControlInput1">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect1">RoomType</label>
+                                    <select class="form-control" id="exampleFormControlSelect1">
+                                      <option>Junior</option>
+                                      <option>Superior</option>
+                                      <option>Deluxe</option>
+                                    </select>
+                                  </div>
+                                <div class="form-group">
+                                  <label for="exampleFormControlInput1">BedCapacital</label>
+                                  <input type="text" class="form-control" id="exampleFormControlInput1">
+                                </div>
+                                <div class="form-group">
+                                  <label for="exampleFormControlInput1">FeetSquare</label>
+                                  <input type="text" class="form-control" id="exampleFormControlInput1">
+                                </div>
+                                <div class="form-group">
+                                  <label for="exampleFormControlInput1">GuestNo</label>
+                                  <input type="text" class="form-control" id="exampleFormControlInput1">
+                                </div>
+                                <div class="form-group">
+                                  <label for="exampleFormControlInput1">Phone</label>
+                                  <input type="text" class="form-control" id="exampleFormControlInput1">
+                                </div>
+                                <div class="form-group">
+                                  <label for="exampleFormControlSelect1">Status</label>
+                                  <select class="form-control" id="exampleFormControlSelect1">
+                                    <option>Available</option>
+                                    <option>Unavailable</option>
+                                    <option>Cleaning</option>
+                                  </select>
+                                </div>
+                              </form>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Delete Room</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                            You want to dele this room?
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-danger" data-dismiss="modal">Delete</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Your Website 2020</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vdor/jquery/jquery.min.js"></script>
+    <script src="vdor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vdor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="vdor/datatables/jquery.dataTables.min.js"></script>
+    <script src="vdor/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="js/demo/datatables-demo.js"></script>
+    <script>
+        $("tr").click(function(){
+            $(this).addClass("selected").siblings().removeClass("selected");
+        });
+        $('#myModal').on('shown.bs.modal', function () {
+            $('#myInput').trigger('focus')
+        })
+    </script>
+</body>
+
+</html>
